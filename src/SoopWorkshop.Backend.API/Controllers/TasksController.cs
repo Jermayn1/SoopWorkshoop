@@ -16,7 +16,7 @@ namespace SoopWorkshop.Backend.API.Controllers
             _taskItemService = taskItemService;
         }
 
-        /// Gibt alle sichtbaren Kategorien und ihre sichtbaren Aufgaben zurück
+        // Gibt alle sichtbaren Kategorien und ihre sichtbaren Aufgaben zurück
         [HttpGet("categories")]
         public async Task<IActionResult> GetVisibleCategories()
         {
@@ -27,7 +27,7 @@ namespace SoopWorkshop.Backend.API.Controllers
                 : BadRequest(result.ErrorMessage);
         }
 
-        /// Gibt die Details einer Aufgabe zurück (Aufgabenstellung, Tipps, etc.)
+        // Gibt die Details einer Aufgabe zurück (Aufgabenstellung, Tipps, etc.)
         [HttpGet("tasks/{id:guid}")]
         public async Task<IActionResult> GetTaskById(Guid id)
         {
