@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SoopWorkshop.Backend.Application.Tasks.Interfaces;
 using SoopWorkshop.Backend.Application.Tasks.Services;
+using SoopWorkshop.Backend.Application.Evaluation.Interfaces;
+using SoopWorkshop.Backend.Application.Evaluation.Services;
 
 namespace SoopWorkshop.Backend.Application
 {
@@ -10,6 +12,7 @@ namespace SoopWorkshop.Backend.Application
         {
             services.AddScoped<ITaskCategoryService, TaskCategoryService>();
             services.AddScoped<ITaskItemService, TaskItemService>();
+            services.AddScoped<IEvaluationService, EvaluationService>();
 
             return services;
         }

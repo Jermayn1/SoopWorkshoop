@@ -1,6 +1,6 @@
 ﻿using SoopWorkshop.Backend.Application.Common;
 using SoopWorkshop.Backend.Application.Evaluation.Interfaces;
-using SoopWorkshop.Backend.Application.Repositories.Interfaces;
+using SoopWorkshop.Backend.Application.Repositories;
 using SoopWorkshop.Backend.Application.Submissions.Services;
 using SoopWorkshop.Backend.Domain.Entities;
 using SoopWorkshop.Shared.DTOs.Evaluation;

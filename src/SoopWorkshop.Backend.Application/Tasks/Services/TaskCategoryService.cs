@@ -1,5 +1,5 @@
 ﻿using SoopWorkshop.Backend.Application.Common;
-using SoopWorkshop.Backend.Application.Repositories.Interfaces;
+using SoopWorkshop.Backend.Application.Repositories;
 using SoopWorkshop.Backend.Application.Tasks.Interfaces;
 using SoopWorkshop.Backend.Domain.Entities;
 using SoopWorkshop.Shared.DTOs.Admin;
