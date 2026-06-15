@@ -3,7 +3,7 @@ using SoopWorkshop.Backend.Domain.Entities;
 using SoopWorkshop.Shared.Constants;
 using SoopWorkshop.Shared.Enums;
 
-namespace SoopWorkshop.Backend.Infrastructure.Evaluation.Checker
+namespace SoopWorkshop.Backend.Infrastructure.Evaluation.Checkers
 {
     // Prüft, ob die eingereichten Dateien Umlaute oder ß beinhalten
     public class CharacterSetChecker
