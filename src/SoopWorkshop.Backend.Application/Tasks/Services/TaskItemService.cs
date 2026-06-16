@@ -68,6 +68,18 @@ namespace SoopWorkshop.Backend.Application.Tasks.Services
             item.Difficulty = dto.Difficulty;
             item.Order = dto.Order;
             item.IsVisible = dto.IsVisible;
+            
+            item.Hints.Clear();
+            foreach (var (content, index) in dto.Hints.Select((content, index) => (content, index)))
+            {
+                item.Hints.Add(new TaskHint
+                {
+                    Id = Guid.NewGuid(),
+                    TaskItemId = item.Id,
+                    Content = content,
+                    Order = index + 1
+                });
+            }
 
             await _repository.UpdateAsync(item);
             return Result<TaskItemDto>.Ok(MapToDto(item));
