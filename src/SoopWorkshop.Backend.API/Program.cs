@@ -15,13 +15,13 @@ builder.Services.AddOpenApi();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-// CORS, erlaubt es den Frontend andere Requests an die API zu senden
+// CORS (Cross-Origin Resource Sharing), erlaubt es den Frontend andere Requests an die API zu senden
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         // Ports können angepasst werden
-        policy.WithOrigins("https://localhost:7000", "http://localhost:5000")
+        policy.WithOrigins("https://localhost:5072", "http://localhost:7281")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
