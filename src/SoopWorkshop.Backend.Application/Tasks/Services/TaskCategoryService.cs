@@ -88,7 +88,17 @@ namespace SoopWorkshop.Backend.Application.Tasks.Services
             Id = category.Id,
             Name = category.Name,
             Order = category.Order,
-            IsVisible = category.IsVisible
+            IsVisible = category.IsVisible,
+            Tasks = category.Tasks.Select(t => new TaskItemDto
+            {
+                Id = t.Id,
+                TaskCategoryId = t.TaskCategoryId,
+                Title = t.Title,
+                Description = t.Description,
+                Difficulty = t.Difficulty,
+                Order = t.Order,
+                IsVisible = t.IsVisible
+            }).ToList()
         };
     }
 }
