@@ -15,6 +15,18 @@ builder.Services.AddOpenApi();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// CORS, erlaubt es den Frontend andere Requests an die API zu senden
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        // Ports können angepasst werden
+        policy.WithOrigins("https://localhost:7000", "http://localhost:5000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Exception Middleware einbinden
@@ -29,6 +41,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// CORS einbinden
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
