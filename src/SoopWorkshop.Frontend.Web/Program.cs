@@ -1,7 +1,20 @@
 using SoopWorkshop.Frontend.Web.Components;
 using MudBlazor.Services;
+using SoopWorkshop.Frontend.Services;
+using SoopWorkshop.Frontend.Services.HttpClients;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var apiBaseUrl = builder.Configuration["ApiBaseUrl"] ?? "http://localhost:5120";
+builder.Services.AddFrontendServices();
+
+// BaseAddress für alle HTTP-Clients setzen
+builder.Services.AddHttpClient<TaskApiClient>(client =>
+    client.BaseAddress = new Uri(apiBaseUrl));
+builder.Services.AddHttpClient<SubmissionApiClient>(client =>
+    client.BaseAddress = new Uri(apiBaseUrl));
+builder.Services.AddHttpClient<AdminApiClient>(client =>
+    client.BaseAddress = new Uri(apiBaseUrl));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
