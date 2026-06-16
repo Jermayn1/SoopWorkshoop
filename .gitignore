@@ -430,3 +430,7 @@ FodyWeavers.xsd
 
 # Meine gesammelten Gedanken
 Gedanken.md
+
+# Jetbrains Rider
+.idea/
+*.sln.iml
